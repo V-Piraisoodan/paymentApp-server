@@ -11,7 +11,7 @@ app.use(cors());
 app.get("/",(req,res)=>{
     res.send("Server created successfully");
 });
-app.get("/api/foods/getfoods", async (req,res)=>{
+app.get("/getfoods", async (req,res)=>{
     try{
     const food = await client.db("FoodDeliveryApp")
                              .collection("FoodItems")
