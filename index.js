@@ -8,9 +8,9 @@ const PORT = 5000;
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.get("/",(req,res)=>{
-    res.send("Server created successfully");
-});
+// app.get("/",(req,res)=>{
+//     res.send("Server created successfully");
+// });
 app.get("/", async (req,res)=>{
     try{
     const food = await client.db("FoodDeliveryApp")
@@ -27,7 +27,7 @@ app.get("/", async (req,res)=>{
 })
 
 
-app.post('/api/orders/placeorder', async (req,res)=>{
+app.post('/placeorder', async (req,res)=>{
 
     const {token,subtotal,cartItems} = req.body
 
