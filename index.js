@@ -6,8 +6,22 @@ import Stripe from "stripe" ;
 const stripe = new Stripe(process.env.STRIPE,{apiVersion : '2022-11-15',})
 const PORT = 5000;
 const app = express();
+const corsOpts = {
+    origin: '*',
+  
+    methods: [
+      'GET',
+      'POST',
+    ],
+  
+    allowedHeaders: [
+      'Content-Type',
+    ],
+  };
+  
+  app.use(cors(corsOpts));
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 app.get("/",(req,res)=>{
     res.send("Server created successfully");
 });
